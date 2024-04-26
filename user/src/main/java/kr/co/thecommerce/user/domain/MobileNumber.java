@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class MobileNumber {
 
-    private static final String MOBILE_NUMBER_REGEX = "^01(?:0|1)-(\\\\d{4})-(\\\\d{4})";
+    private static final String MOBILE_NUMBER_REGEX = "^01(?:0|1)-(\\d{4})-(\\d{4})";
 
     private String mobileNumber;
 
