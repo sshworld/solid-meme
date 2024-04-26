@@ -38,4 +38,16 @@ public class User {
 
     @LastModifiedDate
     private LocalDateTime updatedAt;
+
+    public String getPassword() {
+        return password.getPassword();
+    }
+
+    public String getMobileNumber() {
+        return mobileNumber.getMobileNumber();
+    }
+
+    public String getEmail() {
+        return email.getEmail();
+    }
 }
