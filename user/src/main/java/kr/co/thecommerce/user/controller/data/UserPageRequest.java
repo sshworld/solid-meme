@@ -10,10 +10,10 @@ import lombok.Getter;
 public class UserPageRequest {
 
     @Min(0)
-    private int offset;
+    private int page;
 
     @Min(1)
-    private int limit;
+    private int pageSize;
 
     private SortMethod sortMethod;
 }

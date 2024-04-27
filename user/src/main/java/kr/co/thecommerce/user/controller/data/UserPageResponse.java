@@ -9,17 +9,17 @@ import org.springframework.data.domain.Page;
 @Getter
 public class UserPageResponse {
 
-    private final long offset;
+    private final int page;
 
-    private final long limit;
+    private final int pageSize;
 
     private final SortMethod sortMethod;
 
     private final List<UserResponse> users;
 
     public UserPageResponse(Page<User> users, SortMethod sortMethod) {
-        offset = users.getPageable().getOffset() / 10;
-        limit = users.getPageable().getPageSize();
+        page = users.getPageable().getPageNumber();
+        pageSize = users.getPageable().getPageSize();
         this.sortMethod = sortMethod;
         this.users = users.map(UserResponse::new).toList();
     }

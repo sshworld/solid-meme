@@ -22,8 +22,8 @@ public class UserService {
 
     public Page<User> getUsers(UserPageRequest userPageRequest) {
         Pageable userPageable = PageRequest.of(
-                userPageRequest.getOffset(),
-                userPageRequest.getLimit(),
+                userPageRequest.getPage(),
+                userPageRequest.getPageSize(),
                 userPageRequest.getSortMethod().getSort()
         );
 
