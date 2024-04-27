@@ -39,6 +39,25 @@ public class User {
     @LastModifiedDate
     private LocalDateTime updatedAt;
 
+    public User(UserSignUpRequest userSignUpRequest) {
+        id = userSignUpRequest.getId();
+        password = new Password(userSignUpRequest.getPassword());
+        nickname = userSignUpRequest.getNickname();
+        name = userSignUpRequest.getName();
+        mobileNumber = new MobileNumber(userSignUpRequest.getMobileNumber());
+        email = new Email(userSignUpRequest.getEmail());
+        createdAt = now();
+    }
+
+    public void update(UserUpdateRequest userUpdateRequest) {
+        password = userUpdateRequest.getPassword() == null ? password : new Password(userUpdateRequest.getPassword());
+        nickname = userUpdateRequest.getNickname() == null ? nickname : userUpdateRequest.getNickname();
+        name = userUpdateRequest.getName() == null ? name : userUpdateRequest.getName();
+        mobileNumber = userUpdateRequest.getMobileNumber() == null ? mobileNumber : new MobileNumber(userUpdateRequest.getMobileNumber());
+        email = userUpdateRequest.getEmail() == null ? email : new Email(userUpdateRequest.getEmail());
+        updatedAt = now();
+    }
+
     public String getPassword() {
         return password.getPassword();
     }
