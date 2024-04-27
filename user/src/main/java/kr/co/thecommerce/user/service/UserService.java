@@ -1,8 +1,10 @@
 package kr.co.thecommerce.user.service;
 
+import java.util.NoSuchElementException;
 import javax.transaction.Transactional;
 import kr.co.thecommerce.user.controller.data.UserPageRequest;
 import kr.co.thecommerce.user.controller.data.UserSignUpRequest;
+import kr.co.thecommerce.user.controller.data.UserUpdateRequest;
 import kr.co.thecommerce.user.core.exception.ConflictException;
 import kr.co.thecommerce.user.domain.User;
 import kr.co.thecommerce.user.repository.UserRepository;
@@ -40,5 +42,12 @@ public class UserService {
         userRepository.findById(id).ifPresent(user -> {
             throw new ConflictException("이미 존재하는 아이디 입니다.");
         });
+    }
+
+    @Transactional
+    public void update(String id, UserUpdateRequest userUpdateRequest) {
+        User user = userRepository.findById(id).orElseThrow(() -> new NoSuchElementException("해당 아이디를 가진 회원이 없습니다."));
+
+        user.update(userUpdateRequest);
     }
 }
