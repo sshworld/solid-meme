@@ -63,6 +63,7 @@
 
 ---
 
+- 혼자하는 작업이다 보니 git flow를 활용한 변경 이력관리가 아닌 모두 main branch에서 이력관리를 진행한 점 양해 부탁드립니다.
 - 편의를 위해 create table sql을 작성하여 코드 내 flyway로 생성될 수 있도록 하였습니다.
 - 편의를 위해 일부 데이터를 삽입하는 sql문을 작성하였습니다.
 - 편한 환경 설정을 위해 database username, password는 간단하게 정하였습니다.
